@@ -270,7 +270,7 @@ instance DIA_Nadja_Poppen	(C_INFO)
 	condition	 = 	DIA_Nadja_Poppen_Condition;
 	information	 = 	DIA_Nadja_Poppen_Info;
 	permanent	 = 	TRUE;
-	description  = "(Zabaw siê)";
+	description  = "(Zabaw siê, kaprofag-friendly)";
 };
 
 func int DIA_Nadja_Poppen_Condition ()
