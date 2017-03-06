@@ -160,7 +160,7 @@ FUNC VOID DIA_Menelaos_Zadanie2_Info()
 
     Info_ClearChoices		(DIA_Menelaos_Zadanie2);
     Info_AddChoice		(DIA_Menelaos_Zadanie2, "Pewnie.", DIA_Menelaos_Zadanie2_JA);
-    Info_AddChoice		(DIA_Menelaos_Zadanie2, "Zapomnij.", DIA_Menelaos_Zadanie2_NEIN);
+    Info_AddChoice		(DIA_Menelaos_Zadanie2, "Zapomnijeas.", DIA_Menelaos_Zadanie2_NEIN);
 };
 
 FUNC VOID DIA_Menelaos_Zadanie2_JA()
