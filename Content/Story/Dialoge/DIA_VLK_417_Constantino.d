@@ -185,7 +185,7 @@ FUNC VOID DIA_Constantino_BEER_Info()
     B_GiveInvItems (self, other, ItFo_Menelbeer, 1);
     Log_CreateTopic (TOPIC_ConstantinoBeer, LOG_MISSION);
     Log_SetTopicStatus (TOPIC_ConstantinoBeer, LOG_RUNNING);
-    B_LogEntry (TOPIC_ConstantinoBeer,"Constantino da³ mi do spróbowania swoj¹ now¹ miksturê. Podobno ma mnie uleczyæ. Mam go powiadomiæ o przebiegu próby.");
+    B_LogEntry (TOPIC_ConstantinoBeer,"Constantino da³ mi do spróbowania swojej nowej miksturê. Podobno ma mnie uleczyæ. Mam go powiadomiæ o przebiegu próby.");
 };
 
 
