@@ -176,7 +176,7 @@ FUNC INT DIA_Constantino_BEER_Condition()
 FUNC VOID DIA_Constantino_BEER_Info()
 {
     AI_Output (other, self ,"DIA_Constantino_BEER_15_01"); //Naprawdê nie mo¿esz nic zrobiæ?
-    AI_Output (self, other ,"DIA_Constantino_BEER_10_02"); //W sumie... Mo¿e chcesz spróbowaæ mojej nowej mikstury?
+    AI_Output (self, other ,"DIA_Constantino_BEER_10_02"); //W sumie... Ostatnio wyprodukowa³em coœ nowego. Nazywa siê "wybuchowa mikstura zdrowia".
     AI_Output (self, other ,"DIA_Constantino_BEER_10_03"); //Powinna ci pomóc, no i przy tym smakuje jak piwo!
     AI_Output (other, self ,"DIA_Constantino_BEER_15_04"); //Pewnie, wezmê j¹.
     AI_Output (self, other ,"DIA_Constantino_BEER_10_05"); //Tylko nie zapomnij mi powiedzieæ o rezultatach!
@@ -185,7 +185,7 @@ FUNC VOID DIA_Constantino_BEER_Info()
     B_GiveInvItems (self, other, ItFo_Menelbeer, 1);
     Log_CreateTopic (TOPIC_ConstantinoBeer, LOG_MISSION);
     Log_SetTopicStatus (TOPIC_ConstantinoBeer, LOG_RUNNING);
-    B_LogEntry (TOPIC_ConstantinoBeer,"Constantino da³ mi do spróbowania swoj¹ now¹ miksturê. Podobno ma mnie uleczyæ. Mam go powiadomiæ o przebiegu próby.");
+    B_LogEntry (TOPIC_ConstantinoBeer,"Constantino da³ mi do spróbowania swojej nowej miksturê. Podobno ma mnie uleczyæ. Mam go powiadomiæ o przebiegu próby.");
 };
 
 
