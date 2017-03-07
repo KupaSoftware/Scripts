@@ -176,7 +176,7 @@ FUNC INT DIA_Constantino_BEER_Condition()
 FUNC VOID DIA_Constantino_BEER_Info()
 {
     AI_Output (other, self ,"DIA_Constantino_BEER_15_01"); //Naprawdê nie mo¿esz nic zrobiæ?
-    AI_Output (self, other ,"DIA_Constantino_BEER_10_02"); //W sumie... Mo¿e chcesz spróbowaæ mojej nowej mikstury?
+    AI_Output (self, other ,"DIA_Constantino_BEER_10_02"); //W sumie... Ostatnio wyprodukowa³em coœ nowego. Nazywa siê "wybuchowa mikstura zdrowia".
     AI_Output (self, other ,"DIA_Constantino_BEER_10_03"); //Powinna ci pomóc, no i przy tym smakuje jak piwo!
     AI_Output (other, self ,"DIA_Constantino_BEER_15_04"); //Pewnie, wezmê j¹.
     AI_Output (self, other ,"DIA_Constantino_BEER_10_05"); //Tylko nie zapomnij mi powiedzieæ o rezultatach!
