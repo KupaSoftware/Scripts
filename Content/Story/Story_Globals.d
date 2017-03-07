@@ -1502,3 +1502,5 @@ var int MIS_James_Eq;
 var int B_MenelNoHelp;
 var int MIS_Menel_Bitch;
 var int B_MenelBeerGiven;
+var int MIS_Brahim_Map;
+var int Brahim_Dia_1 = 1;

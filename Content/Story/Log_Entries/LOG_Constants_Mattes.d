@@ -178,3 +178,4 @@ const string	TOPIC_menel					= "Menelaos";
 const string	TOPIC_ConstantinoBeer		= "Piwo Constantina";
 const string TOPIC_James_Eq      = "Paladyn James";
 const string TOPIC_Menel_Bitch      = "Praca dla Menelaosa";
+const string TOPIC_Brahim_Map      = "Nowa Mapa";

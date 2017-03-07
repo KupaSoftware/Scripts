@@ -32,6 +32,59 @@ FUNC VOID DIA_Brahim_EXIT_Info()
 	B_BrahimNewMaps ();
 	AI_StopProcessInfos (self);
 };
+//========================================
+//-----------------> NewMap
+//========================================
+
+INSTANCE DIA_Brahim_NewMap (C_INFO)
+{
+   npc          = VLK_437_Brahim;
+   nr           = 1;
+   condition    = DIA_Brahim_NewMap_Condition;
+   information  = DIA_Brahim_NewMap_Info;
+   permanent	= TRUE;
+   description	= "Pracujesz nad czymœ nowym?";
+};
+
+FUNC INT DIA_Brahim_NewMap_Condition()
+{
+    if (Brahim_Dia_1 > 0)
+    {
+    return TRUE;
+    };
+};
+
+
+FUNC VOID DIA_Brahim_NewMap_Info()
+{
+    AI_Output (other, self ,"DIA_Brahim_NewMap_15_01"); //Pracujesz nad czymœ nowym?
+     if (Hero.Level >= 8)
+    {
+        Brahim_Dia_1 = 0
+        AI_Output (self, other ,"DIA_Brahim_NewMap_03_02"); //Mo¿na tak powiedzieæ, chcê ulepszyæ moj¹ mapê wyspy ale to chyba na chwilê obecn¹ nie mo¿liwe
+        AI_Output (other, self ,"DIA_Brahim_NewMap_15_03"); //Mogê ci jakoœ pomóc?
+        AI_Output (self, other ,"DIA_Brahim_NewMap_03_04"); //Chcê sprawdziæ kilka nieœcis³oœci ale w tym celu muszê udaæ siê w parê miejsc
+        AI_Output (self, other ,"DIA_Brahim_NewMap_03_05"); //Khorinis w obecnym stanie nie sprzyja samotnym wêdrówk¹ krajoznawczym
+        AI_Output (self, other ,"DIA_Brahim_NewMap_03_06"); //Ale ty, ty wygl¹dasz na kogoœ kto móg³by mi pomóc
+        AI_Output (self, other ,"DIA_Brahim_NewMap_03_07"); //Pomó¿ mi dostaæ w parê miejsc bez utraty ¿ycia a na pewno ci siê odwdziêczê
+        AI_Output (other, self ,"DIA_Brahim_NewMap_15_08"); //Zobaczê co da siê zrobiæ
+        AI_Output (self, other ,"DIA_Brahim_NewMap_03_09"); //PrzyjdŸ jak bêdziesz gotowy
+        MIS_Brahim_Map = LOG_RUNNING;
+
+        Log_CreateTopic            (TOPIC_Brahim_Map, LOG_MISSION);
+        Log_SetTopicStatus       (TOPIC_Brahim_Map, LOG_RUNNING);
+        B_LogEntry                     (TOPIC_Brahim_Map,"Brahim potrzebuje ochrony podczas sporz¹dzania nowej mapy, a ja potrzebujê pieniêdzy. To chyba uczciwa wymiana");
+
+        B_GivePlayerXP (20);
+        AI_StopProcessInfos	(self);
+
+    };
+     if (Hero.Level < 8)
+    {
+        AI_Output (self, other ,"DIA_Brahim_NewMap_03_10"); //Mam drobny problem ale nie s¹dze ¿eby ktoœ tak s³aby móg³ mi pomóc
+        AI_StopProcessInfos	(self);
+    };
+};
 // ************************************************************
 // 			  				PICK POCKET
 // ************************************************************
