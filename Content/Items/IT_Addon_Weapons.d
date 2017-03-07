@@ -66,6 +66,35 @@ INSTANCE ItMW_Addon_Knife01 (C_Item)
 	TEXT[4]				= NAME_ADDON_BONUS_1H;			COUNT[4]	= Waffenbonus_03;
 	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
 };
+
+INSTANCE ItMW_Addon_Knife69 (C_Item)
+{	
+	name 				=	"Penetrator";  
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_SWD;	
+	material 			=	MAT_METAL;
+
+	value 				=	Value_Wolfsmesser;
+
+	damageTotal  		= 	Damage_Wolfsmesser;
+	damagetype 			=	DAM_EDGE;
+	range    			=  	Range_Wolfsmesser;		
+	
+	on_equip			=	Equip_1H_03;
+	on_unequip			=	UnEquip_1H_03;
+	
+	cond_atr[2]   		=	ATR_STRENGTH;
+	cond_value[2]  		=	Condition_Wolfsmesser;
+	visual 				=	"ItMw_012_1h_Knife_02.3DS";
+
+	description			=   name;
+	
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4]				= NAME_ADDON_BONUS_1H;			COUNT[4]	= Waffenbonus_03;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+	
 // *****************************************************
 INSTANCE ItMW_Addon_Stab01 (C_Item)
 {	
@@ -802,3 +831,4 @@ instance ItRw_Addon_MagicCrossbow (C_Item)
 	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
 	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
 };
+
