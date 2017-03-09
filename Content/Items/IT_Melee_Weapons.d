@@ -2473,6 +2473,10 @@ INSTANCE ItMw_2H_Blessed_03 (C_Item)
 	TEXT[4] 			= NAME_TwoHanded;
 	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
 };
+/****************************************************************************************/
+//        						    	MOD	              								 /
+/****************************************************************************************/
+
 
 INSTANCE ItMw_1h_toothpick(C_Item)
 {	
@@ -2495,6 +2499,31 @@ INSTANCE ItMw_1h_toothpick(C_Item)
 	description			= name;
 	
 	TEXT[1]				= "Chyba do d³ubania w zêbach";
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
+	TEXT[4] 			= NAME_OneHanded;
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+INSTANCE ItMw_PeterAxe (C_Item) 
+{	
+	name 				=	"Tasak Petera";
+
+	mainflag 			=	ITEM_KAT_NF;
+	flags 				=	ITEM_AXE;	
+	material 			=	MAT_METAL;
+
+	value 				=	Value_Bartaxt;
+
+	damageTotal			= 	Damage_Bartaxt;
+	damagetype			=	DAM_EDGE;
+	range    			=  	Range_Bartaxt;		
+
+	cond_atr[2]   		= 	ATR_STRENGTH;
+	cond_value[2]  		= 	Condition_Bartaxt;
+	visual 				=	"ItMw_040_1h_axe_03.3DS";
+
+	description			= name;
+	TEXT[1]				= "Ma wygrawerowan¹ z³ot¹ literê P na rêkojeœci";
 	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
 	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
 	TEXT[4] 			= NAME_OneHanded;

@@ -95,6 +95,7 @@ INSTANCE ItMW_Addon_Knife69 (C_Item)
 	TEXT[4]				= NAME_ADDON_BONUS_1H;			COUNT[4]	= Waffenbonus_03;
 	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
 	
+};
 // *****************************************************
 INSTANCE ItMW_Addon_Stab01 (C_Item)
 {	
