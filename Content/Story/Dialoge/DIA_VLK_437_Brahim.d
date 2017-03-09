@@ -32,59 +32,7 @@ FUNC VOID DIA_Brahim_EXIT_Info()
 	B_BrahimNewMaps ();
 	AI_StopProcessInfos (self);
 };
-//========================================
-//-----------------> NewMap
-//========================================
 
-INSTANCE DIA_Brahim_NewMap (C_INFO)
-{
-   npc          = VLK_437_Brahim;
-   nr           = 1;
-   condition    = DIA_Brahim_NewMap_Condition;
-   information  = DIA_Brahim_NewMap_Info;
-   permanent	= TRUE;
-   description	= "Pracujesz nad czymœ nowym?";
-};
-
-FUNC INT DIA_Brahim_NewMap_Condition()
-{
-    if (Brahim_Dia_1 > 0)
-    {
-    return TRUE;
-    };
-};
-
-
-FUNC VOID DIA_Brahim_NewMap_Info()
-{
-    AI_Output (other, self ,"DIA_Brahim_NewMap_15_01"); //Pracujesz nad czymœ nowym?
-     if (Hero.Level >= 8)
-    {
-        Brahim_Dia_1 = 0
-        AI_Output (self, other ,"DIA_Brahim_NewMap_03_02"); //Mo¿na tak powiedzieæ, chcê ulepszyæ moj¹ mapê wyspy ale to chyba na chwilê obecn¹ nie mo¿liwe
-        AI_Output (other, self ,"DIA_Brahim_NewMap_15_03"); //Mogê ci jakoœ pomóc?
-        AI_Output (self, other ,"DIA_Brahim_NewMap_03_04"); //Chcê sprawdziæ kilka nieœcis³oœci ale w tym celu muszê udaæ siê w parê miejsc
-        AI_Output (self, other ,"DIA_Brahim_NewMap_03_05"); //Khorinis w obecnym stanie nie sprzyja samotnym wêdrówk¹ krajoznawczym
-        AI_Output (self, other ,"DIA_Brahim_NewMap_03_06"); //Ale ty, ty wygl¹dasz na kogoœ kto móg³by mi pomóc
-        AI_Output (self, other ,"DIA_Brahim_NewMap_03_07"); //Pomó¿ mi dostaæ w parê miejsc bez utraty ¿ycia a na pewno ci siê odwdziêczê
-        AI_Output (other, self ,"DIA_Brahim_NewMap_15_08"); //Zobaczê co da siê zrobiæ
-        AI_Output (self, other ,"DIA_Brahim_NewMap_03_09"); //PrzyjdŸ jak bêdziesz gotowy
-        MIS_Brahim_Map = LOG_RUNNING;
-
-        Log_CreateTopic            (TOPIC_Brahim_Map, LOG_MISSION);
-        Log_SetTopicStatus       (TOPIC_Brahim_Map, LOG_RUNNING);
-        B_LogEntry                     (TOPIC_Brahim_Map,"Brahim potrzebuje ochrony podczas sporz¹dzania nowej mapy, a ja potrzebujê pieniêdzy. To chyba uczciwa wymiana");
-
-        B_GivePlayerXP (20);
-        AI_StopProcessInfos	(self);
-
-    };
-     if (Hero.Level < 8)
-    {
-        AI_Output (self, other ,"DIA_Brahim_NewMap_03_10"); //Mam drobny problem ale nie s¹dze ¿eby ktoœ tak s³aby móg³ mi pomóc
-        AI_StopProcessInfos	(self);
-    };
-};
 // ************************************************************
 // 			  				PICK POCKET
 // ************************************************************
@@ -121,6 +69,52 @@ func void DIA_Brahim_PICKPOCKET_BACK()
 {
 	Info_ClearChoices (DIA_Brahim_PICKPOCKET);
 };
+//========================================
+//-----------------> BrahimNeedHelp
+//========================================
+
+INSTANCE DIA_Brahim_BrahimNeedHelp (C_INFO)
+{
+   npc          = VLK_437_Brahim;
+   nr           = 94;
+   condition    = DIA_Brahim_BrahimNeedHelp_Condition;
+   information  = DIA_Brahim_BrahimNeedHelp_Info;
+   permanent	= FALSE;
+   description	= "Pracujesz nad czymœ nowym?";
+};
+
+FUNC INT DIA_Brahim_BrahimNeedHelp_Condition()
+{
+     if (Hero.Level >= 10)
+    {
+    return TRUE;
+    };
+};
+
+
+FUNC VOID DIA_Brahim_BrahimNeedHelp_Info()
+{
+    AI_Output (other, self ,"DIA_Brahim_BrahimNeedHelp_15_01"); //Pracujesz nad czymœ nowym?
+    AI_Output (self, other ,"DIA_Brahim_BrahimNeedHelp_03_02"); //Nie do koñca, w tym momencie chcê udoskonaliæ mapê wyspy ale to chyba musi poczekaæ
+    AI_Output (other, self ,"DIA_Brahim_BrahimNeedHelp_15_03"); //Dlaczego?
+    AI_Output (self, other ,"DIA_Brahim_BrahimNeedHelp_03_04"); //Do miejsc które wymagaj¹ poprawek nie mo¿na tak po prostu pójœæ. To niebezpieczne tereny
+    AI_Output (self, other ,"DIA_Brahim_BrahimNeedHelp_03_05"); //Ale ty... Ty wygl¹dasz na kogoœ kto móg³by mi pomóc
+    AI_Output (other, self ,"DIA_Brahim_BrahimNeedHelp_15_06"); //Jak mam ci pomóc?
+    AI_Output (self, other ,"DIA_Brahim_BrahimNeedHelp_03_07"); //Wystarczy ¿e oprowadzisz mnie po paru miejscach na wyspie i odeskortujesz z powrotem do miasta, ¿ywego oczywiœcie
+    AI_Output (other, self ,"DIA_Brahim_BrahimNeedHelp_15_08"); //To nie bêdzie takie proste
+    AI_Output (self, other ,"DIA_Brahim_BrahimNeedHelp_03_09"); //Ale nagroda te¿ niczego sobie...
+    AI_Output (self, other ,"DIA_Brahim_BrahimNeedHelp_03_10"); //PrzyjdŸ do mnie jeœli zdecydujesz siê na wyprawê
+    MIS_Brahim_Expedition = LOG_RUNNING;
+
+    Log_CreateTopic            (TOPIC_Brahim_Expedition, LOG_MISSION);
+    Log_SetTopicStatus       (TOPIC_Brahim_Expedition, LOG_RUNNING);
+    B_LogEntry                     (TOPIC_Brahim_Expedition,"Brahim chce Udoskonaliæ swoj¹ mapê ale wyspa w obecnym stanie nie nadaje siê do wycieczek krajoznawczych");
+
+    B_GivePlayerXP (50);
+    AI_StopProcessInfos	(self);
+};
+
+
 ///////////////////////////////////////////////////////////////////////
 //	Info GREET
 ///////////////////////////////////////////////////////////////////////
