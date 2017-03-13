@@ -174,13 +174,13 @@ FUNC INT DIA_Brahim_Forest_Condition()
 
 FUNC VOID DIA_Brahim_Forest_Info()
 {
-    AI_Output (self, other ,"DIA_Brahim_Forest_15_01"); //Stï¿½d ï¿½wietnie widaï¿½ dolinï¿½
+    AI_Output (self, other ,"DIA_Brahim_Forest_15_01"); //St¹d œwietnie widaæ dolinê
     AI_PlayAni (self, "T_SEARCH");
     B_UseFakeScroll ();
-    AI_Output (self, other ,"DIA_Brahim_Forest_15_02"); //Parï¿½ detali do poprawy ale ogï¿½lnie nic ciekawego
-    AI_Output (other, self ,"DIA_Brahim_Forest_15_03"); //Moï¿½emy iï¿½ï¿½ dalej?
-    AI_Output (self, other ,"DIA_Brahim_Forest_03_04"); //Tak, chodï¿½my juï¿½... Mam ciarki na plecach
-	B_LogEntry                     (TOPIC_Brahim_Expedition,"Ze wzgï¿½rza na granicy lasu Brahim nie dostrzegï¿½ nic ciekawego. Dobrze ï¿½e ten szaleniec nie kazaï¿½ mi iï¿½ï¿½ dalej w gï¿½ï¿½b tej przeklï¿½tej puszczy");
+    AI_Output (self, other ,"DIA_Brahim_Forest_15_02"); //Parê detali do poprawy ale ogólnie nic ciekawego
+    AI_Output (other, self ,"DIA_Brahim_Forest_15_03"); //Mo¿emy iœæ dalej?
+    AI_Output (self, other ,"DIA_Brahim_Forest_03_04"); //Tak, chodŸmy ju¿... Mam ciarki na plecach
+	B_LogEntry                     (TOPIC_Brahim_Expedition,"Ze wzgórza na granicy lasu Brahim nie dostrzeg³ nic ciekawego. Dobrze ¿e ten szaleniec nie kaza³ mi iœæ dalej w g³¹b tej przeklêtej puszczy");
 	B_GivePlayerXP (50);
     self.aivar[AIV_PARTYMEMBER] = TRUE;
     Npc_ExchangeRoutine (self, "MONASTERY");
@@ -212,13 +212,13 @@ FUNC INT DIA_Brahim_Monastery_Condition()
 
 FUNC VOID DIA_Brahim_Monastery_Info()
 {
-    AI_Output (self, other ,"DIA_Brahim_Monastery_15_01"); //Erozja ewidentnie zmieniï¿½a ksztaï¿½ terenu pod mostem
+    AI_Output (self, other ,"DIA_Brahim_Monastery_15_01"); //Erozja ewidentnie zmieni³a kszta³ terenu pod mostem
     AI_PlayAni (self, "T_SEARCH");
     B_UseFakeScroll ();
-    AI_Output (other, self ,"DIA_Brahim_Monastery_15_02"); //Ja tam nic nie widzï¿½
-    AI_Output (other, self ,"DIA_Brahim_Monastery_15_03"); //Moï¿½emy iï¿½ï¿½ dalej?
-    AI_Output (self, other ,"DIA_Brahim_Monastery_03_04"); //Zero w tobie entuzjazmu. No dobrze chodï¿½my dalej
-	B_LogEntry                     (TOPIC_Brahim_Expedition,"Brahim gada jakieï¿½ pierdoï¿½y o erozji");
+    AI_Output (other, self ,"DIA_Brahim_Monastery_15_02"); //Ja tam nic nie widzê
+    AI_Output (other, self ,"DIA_Brahim_Monastery_15_03"); //Mo¿emy iœæ dalej?
+    AI_Output (self, other ,"DIA_Brahim_Monastery_03_04"); //Zero w tobie entuzjazmu. No dobrze chodŸmy dalej
+	B_LogEntry                     (TOPIC_Brahim_Expedition,"Brahim gada jakieœ pierdo³y o erozji");
 	B_GivePlayerXP (25);
     self.aivar[AIV_PARTYMEMBER] = TRUE;
     Npc_ExchangeRoutine (self, "FARM");
@@ -241,6 +241,7 @@ INSTANCE DIA_Brahim_Farm (C_INFO)
 
 FUNC INT DIA_Brahim_Farm_Condition()
 {
+    if (Npc_GetDistToWP (self, "NW_FARM3_PATH_12") < 1000)
     {
     return TRUE;
     };
@@ -249,13 +250,13 @@ FUNC INT DIA_Brahim_Farm_Condition()
 
 FUNC VOID DIA_Brahim_Farm_Info()
 {
-    AI_Output (self, other ,"DIA_Brahim_Farm_15_01"); //Aleï¿½ piï¿½kne widoki! Nigdy nie widziaï¿½em tej czï¿½ci wyspy z tej perspektywy
+    AI_Output (self, other ,"DIA_Brahim_Farm_15_01"); //Ale¿ piêkne widoki! Nigdy nie widzia³em tej czêœci wyspy z tej perspektywy
     AI_PlayAni (self, "T_SEARCH");
     B_UseFakeScroll ();
-    AI_Output (other, self ,"DIA_Brahim_Farm_15_02"); //Niesamowite, naprawdï¿½ wspaniaï¿½e
-    AI_Output (other, self ,"DIA_Brahim_Farm_15_03"); //Chcesz zobaczyï¿½ coï¿½ jeszcze?
+    AI_Output (other, self ,"DIA_Brahim_Farm_15_02"); //Niesamowite, naprawdê wspania³e
+    AI_Output (other, self ,"DIA_Brahim_Farm_15_03"); //Chcesz zobaczyæ coœ jeszcze?
     AI_Output (self, other ,"DIA_Brahim_Farm_03_04"); //Jeszcze tylko jedno miejsce
-	B_LogEntry                     (TOPIC_Brahim_Expedition,"Piï¿½kne widoki z klifu sprawiï¿½y ï¿½e Brahim zapisaï¿½ caï¿½y szereg poprawek do swojej mapy");
+	B_LogEntry                     (TOPIC_Brahim_Expedition,"Piêkne widoki z klifu sprawi³y ¿e Brahim zapisa³ ca³y szereg poprawek do swojej mapy");
 	B_GivePlayerXP (50);
     self.aivar[AIV_PARTYMEMBER] = TRUE;
     Npc_ExchangeRoutine (self, "TROLL");
@@ -288,16 +289,17 @@ FUNC INT DIA_Brahim_Troll_Condition()
 FUNC VOID DIA_Brahim_Troll_Info()
 {
 	AI_PlayAni (self, "T_SEARCH");
-    AI_Output (self, other ,"DIA_Brahim_Troll_15_01"); //Sï¿½yszysz te ryki? To chyba trolle...
-    AI_Output (other, self ,"DIA_Brahim_Troll_15_02"); //Sï¿½yszï¿½ i nie podoba mi siï¿½ to
-    AI_Output (other, self ,"DIA_Brahim_Troll_15_03"); //Koï¿½cz i wracajmy
+    AI_Output (self, other ,"DIA_Brahim_Troll_15_01"); //S³yszysz te ryki? To chyba trolle...
+    AI_Output (other, self ,"DIA_Brahim_Troll_15_02"); //S³yszê i nie podoba mi siê to
+    AI_Output (other, self ,"DIA_Brahim_Troll_15_03"); //Koñcz i wracajmy
 	B_UseFakeScroll ();
-    AI_Output (self, other ,"DIA_Brahim_Troll_03_04"); //Juï¿½ skoï¿½czyï¿½em
-	B_LogEntry                     (TOPIC_Brahim_Expedition,"W okolicy farmy Onara jest kotlina w ktï¿½rej urzï¿½dujï¿½ trolle. Nie zbyt przyjemne miejsce na wycieczkï¿½. Brahim ma juï¿½ wszystko czego mu trzeba");
-	 Log_SetTopicStatus       (TOPIC_Brahim_Expedition, LOG_SUCCESS);
+    AI_Output (self, other ,"DIA_Brahim_Troll_03_04"); //Ju¿ skoñczy³em
+	B_LogEntry                     (TOPIC_Brahim_Expedition,"W okolicy farmy Onara jest kotlina w której urzêduj¹ trolle. Nie zbyt przyjemne miejsce na wycieczkê. Brahim ma ju¿ wszystko czego mu trzeba");
+	Log_SetTopicStatus       (TOPIC_Brahim_Expedition, LOG_SUCCESS);
+	B_GivePlayerXP (300);
     MIS_Brahim_Expedition = LOG_SUCCESS;
 
-    B_GivePlayerXP (300);
+
 
     self.aivar[AIV_PARTYMEMBER] = FALSE;
     Npc_ExchangeRoutine (self, "START");
