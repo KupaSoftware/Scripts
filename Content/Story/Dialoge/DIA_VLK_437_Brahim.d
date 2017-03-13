@@ -95,7 +95,7 @@ FUNC INT DIA_Brahim_BrahimNeedHelp_Condition()
 FUNC VOID DIA_Brahim_BrahimNeedHelp_Info()
 {
     AI_Output (other, self ,"DIA_Brahim_BrahimNeedHelp_15_01"); //Pracujesz nad czymœ nowym?
-    AI_Output (self, other ,"DIA_Brahim_BrahimNeedHelp_03_02"); //Nie do koñca, w tym momencie chcê udoskonaliæ mapê wyspy ale to chyba musi poczekaæ
+    AI_Output (self, other ,"DIA_Brahim_BrahimNeedHelp_03_02"); //Nie do koñca. W tym momencie chcê udoskonaliæ mapê wyspy ale to chyba musi poczekaæ
     AI_Output (other, self ,"DIA_Brahim_BrahimNeedHelp_15_03"); //Dlaczego?
     AI_Output (self, other ,"DIA_Brahim_BrahimNeedHelp_03_04"); //Do miejsc które wymagaj¹ poprawek nie mo¿na tak po prostu pójœæ. To niebezpieczne tereny
     AI_Output (self, other ,"DIA_Brahim_BrahimNeedHelp_03_05"); //Ale ty... Ty wygl¹dasz na kogoœ kto móg³by mi pomóc
@@ -108,11 +108,48 @@ FUNC VOID DIA_Brahim_BrahimNeedHelp_Info()
 
     Log_CreateTopic            (TOPIC_Brahim_Expedition, LOG_MISSION);
     Log_SetTopicStatus       (TOPIC_Brahim_Expedition, LOG_RUNNING);
-    B_LogEntry                     (TOPIC_Brahim_Expedition,"Brahim chce Udoskonaliæ swoj¹ mapê ale wyspa w obecnym stanie nie nadaje siê do wycieczek krajoznawczych");
+    B_LogEntry                     (TOPIC_Brahim_Expedition,"Brahim chce udoskonaliæ swoj¹ mapê ale wyspa w obecnym stanie nie nadaje siê do wycieczek krajoznawczych");
 
     B_GivePlayerXP (50);
     AI_StopProcessInfos	(self);
 };
+
+//========================================
+//-----------------> BrahimStart
+//========================================
+
+INSTANCE DIA_Brahim_BrahimStart (C_INFO)
+{
+   npc          = VLK_437_Brahim;
+   nr           = 95;
+   condition    = DIA_Brahim_BrahimStart_Condition;
+   information  = DIA_Brahim_BrahimStart_Info;
+   permanent	= FALSE;
+   description	= "Ruszajmy";
+};
+
+FUNC INT DIA_Brahim_BrahimStart_Condition()
+{
+    if (Npc_KnowsInfo (other, DIA_Brahim_BrahimNeedHelp))
+    {
+    return TRUE;
+    };
+};
+
+
+FUNC VOID DIA_Brahim_BrahimStart_Info()
+{
+    AI_Output (other, self ,"DIA_Brahim_BrahimStart_15_01"); //Jestem gotowy
+    AI_Output (self, other ,"DIA_Brahim_BrahimStart_03_02"); //W takim razie nie ma co zwlekaæ. Ale¿ jestem podekscytowany
+    AI_Output (self, other ,"DIA_Brahim_BrahimStart_03_03"); //Prawie jak bym by³ jednym z wielkich odkrywców...
+    AI_Output (other, self ,"DIA_Brahim_BrahimStart_15_04"); //To tylko zwyk³e poprawki, nie podniecaj siê tak
+    B_LogEntry                     (TOPIC_Brahim_Expedition,"Brahim chyba bardzo podnieca siê t¹ wypraw¹");
+    self.aivar[AIV_PARTYMEMBER] = TRUE;
+    Npc_ExchangeRoutine (self, "EXPEDITION");
+    AI_StopProcessInfos	(self);
+};
+
+
 
 
 ///////////////////////////////////////////////////////////////////////

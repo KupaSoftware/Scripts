@@ -45,3 +45,8 @@ FUNC VOID Rtn_Start_437()
 	TA_Sit_Bench		(08,00,22,00,"NW_CITY_HABOUR_HUT_01_FRONT");
     TA_Sleep			(22,00,08,00,"NW_CITY_BED_BRAHIM");
 };
+FUNC VOID Rtn_Expedition_437()
+{	
+	TA_Guide_Player  (08,00,20,00,"NW_FOREST_PATH_02");
+	TA_Guide_Player	 (20,00,08,00,"NW_FOREST_PATH_02");
+};
