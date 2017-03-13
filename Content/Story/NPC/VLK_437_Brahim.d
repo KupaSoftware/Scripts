@@ -13,12 +13,13 @@ instance VLK_437_Brahim (Npc_Default)
 	aivar[AIV_ToughGuy] = TRUE; 
 	
 	// ------ Attribute ------
-	B_SetAttributesToChapter (self, 3);															
+	B_SetAttributesToChapter (self, 4);															
 	
 	// ------ Kampf-Taktik ------
 	fight_tactic		= FAI_HUMAN_STRONG;	
 	
 	// ------ Equippte Waffen ------																
+	EquipItem	(self, ItMw_Schwert3); 														
 	
 	// ------ Inventory ------
 	// Händler
@@ -34,7 +35,7 @@ instance VLK_437_Brahim (Npc_Default)
 	B_GiveNpcTalents (self);
 	
 	// ------ Kampf-Talente ------																	
-	B_SetFightSkills (self,30); 
+	B_SetFightSkills (self,50); 
 	
 	// ------ TA anmelden ------
 	daily_routine 		= Rtn_Start_437;
@@ -49,4 +50,19 @@ FUNC VOID Rtn_Expedition_437()
 {	
 	TA_Guide_Player  (08,00,20,00,"NW_FOREST_PATH_02");
 	TA_Guide_Player	 (20,00,08,00,"NW_FOREST_PATH_02");
+};
+FUNC VOID Rtn_Monastery_437()
+{	
+	TA_Guide_Player  (08,00,20,00,"NW_MONASTERY_BRIDGE_02");
+	TA_Guide_Player	 (20,00,08,00,"NW_MONASTERY_BRIDGE_02");
+};
+FUNC VOID Rtn_Farm_437()
+{	
+	TA_Guide_Player  (08,00,20,00,"NW_FARM3_PATH_11");
+	TA_Guide_Player	 (20,00,08,00,"NW_FARM3_PATH_11");
+};
+FUNC VOID Rtn_Troll_437()
+{	
+	TA_Guide_Player  (08,00,20,00,"NW_CASTLEMINE_TROLL_03");
+	TA_Guide_Player	 (20,00,08,00,"NW_CASTLEMINE_TROLL_03");
 };

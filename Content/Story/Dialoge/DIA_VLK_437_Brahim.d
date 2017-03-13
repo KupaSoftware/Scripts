@@ -149,8 +149,160 @@ FUNC VOID DIA_Brahim_BrahimStart_Info()
     AI_StopProcessInfos	(self);
 };
 
+//========================================
+//-----------------> Forest
+//========================================
+
+INSTANCE DIA_Brahim_Forest (C_INFO)
+{
+   npc          = VLK_437_Brahim;
+   nr           = 87;
+   condition    = DIA_Brahim_Forest_Condition;
+   information  = DIA_Brahim_Forest_Info;
+   permanent	= FALSE;
+   Important    = TRUE;
+};
+
+FUNC INT DIA_Brahim_Forest_Condition()
+{
+    if (Npc_GetDistToWP (self, "NW_FOREST_PATH_02") < 500)
+    {
+    return TRUE;
+    };
+};
 
 
+FUNC VOID DIA_Brahim_Forest_Info()
+{
+    AI_Output (self, other ,"DIA_Brahim_Forest_15_01"); //St�d �wietnie wida� dolin�
+    AI_PlayAni (self, "T_SEARCH");
+    B_UseFakeScroll ();
+    AI_Output (self, other ,"DIA_Brahim_Forest_15_02"); //Par� detali do poprawy ale og�lnie nic ciekawego
+    AI_Output (other, self ,"DIA_Brahim_Forest_15_03"); //Mo�emy i�� dalej?
+    AI_Output (self, other ,"DIA_Brahim_Forest_03_04"); //Tak, chod�my ju�... Mam ciarki na plecach
+	B_LogEntry                     (TOPIC_Brahim_Expedition,"Ze wzg�rza na granicy lasu Brahim nie dostrzeg� nic ciekawego. Dobrze �e ten szaleniec nie kaza� mi i�� dalej w g��b tej przekl�tej puszczy");
+	B_GivePlayerXP (50);
+    self.aivar[AIV_PARTYMEMBER] = TRUE;
+    Npc_ExchangeRoutine (self, "MONASTERY");
+    AI_StopProcessInfos	(self);
+};
+
+//========================================
+//-----------------> Monastery
+//========================================
+
+INSTANCE DIA_Brahim_Monastery (C_INFO)
+{
+   npc          = VLK_437_Brahim;
+   nr           = 87;
+   condition    = DIA_Brahim_Monastery_Condition;
+   information  = DIA_Brahim_Monastery_Info;
+   permanent	= FALSE;
+   Important    = TRUE;
+};
+
+FUNC INT DIA_Brahim_Monastery_Condition()
+{
+    if (Npc_GetDistToWP (self, "NW_MONASTERY_BRIDGE_02") < 500)
+    {
+    return TRUE;
+    };
+};
+
+
+FUNC VOID DIA_Brahim_Monastery_Info()
+{
+    AI_Output (self, other ,"DIA_Brahim_Monastery_15_01"); //Erozja ewidentnie zmieni�a kszta� terenu pod mostem
+    AI_PlayAni (self, "T_SEARCH");
+    B_UseFakeScroll ();
+    AI_Output (other, self ,"DIA_Brahim_Monastery_15_02"); //Ja tam nic nie widz�
+    AI_Output (other, self ,"DIA_Brahim_Monastery_15_03"); //Mo�emy i�� dalej?
+    AI_Output (self, other ,"DIA_Brahim_Monastery_03_04"); //Zero w tobie entuzjazmu. No dobrze chod�my dalej
+	B_LogEntry                     (TOPIC_Brahim_Expedition,"Brahim gada jakie� pierdo�y o erozji");
+	B_GivePlayerXP (25);
+    self.aivar[AIV_PARTYMEMBER] = TRUE;
+    Npc_ExchangeRoutine (self, "FARM");
+    AI_StopProcessInfos	(self);
+};
+
+//========================================
+//-----------------> Farm
+//========================================
+
+INSTANCE DIA_Brahim_Farm (C_INFO)
+{
+   npc          = VLK_437_Brahim;
+   nr           = 87;
+   condition    = DIA_Brahim_Farm_Condition;
+   information  = DIA_Brahim_Farm_Info;
+   permanent	= FALSE;
+   Important    = TRUE;
+};
+
+FUNC INT DIA_Brahim_Farm_Condition()
+{
+    {
+    return TRUE;
+    };
+};
+
+
+FUNC VOID DIA_Brahim_Farm_Info()
+{
+    AI_Output (self, other ,"DIA_Brahim_Farm_15_01"); //Ale� pi�kne widoki! Nigdy nie widzia�em tej cz�ci wyspy z tej perspektywy
+    AI_PlayAni (self, "T_SEARCH");
+    B_UseFakeScroll ();
+    AI_Output (other, self ,"DIA_Brahim_Farm_15_02"); //Niesamowite, naprawd� wspania�e
+    AI_Output (other, self ,"DIA_Brahim_Farm_15_03"); //Chcesz zobaczy� co� jeszcze?
+    AI_Output (self, other ,"DIA_Brahim_Farm_03_04"); //Jeszcze tylko jedno miejsce
+	B_LogEntry                     (TOPIC_Brahim_Expedition,"Pi�kne widoki z klifu sprawi�y �e Brahim zapisa� ca�y szereg poprawek do swojej mapy");
+	B_GivePlayerXP (50);
+    self.aivar[AIV_PARTYMEMBER] = TRUE;
+    Npc_ExchangeRoutine (self, "TROLL");
+    AI_StopProcessInfos	(self);
+};
+
+//========================================
+//-----------------> Troll
+//========================================
+
+INSTANCE DIA_Brahim_Troll (C_INFO)
+{
+   npc          = VLK_437_Brahim;
+   nr           = 87;
+   condition    = DIA_Brahim_Troll_Condition;
+   information  = DIA_Brahim_Troll_Info;
+   permanent	= FALSE;
+   Important    = TRUE;
+};
+
+FUNC INT DIA_Brahim_Troll_Condition()
+{
+    if (Npc_GetDistToWP (self, "NW_CASTLEMINE_TROLL_03") < 500)
+    {
+    return TRUE;
+    };
+};
+
+
+FUNC VOID DIA_Brahim_Troll_Info()
+{
+	AI_PlayAni (self, "T_SEARCH");
+    AI_Output (self, other ,"DIA_Brahim_Troll_15_01"); //S�yszysz te ryki? To chyba trolle...
+    AI_Output (other, self ,"DIA_Brahim_Troll_15_02"); //S�ysz� i nie podoba mi si� to
+    AI_Output (other, self ,"DIA_Brahim_Troll_15_03"); //Ko�cz i wracajmy
+	B_UseFakeScroll ();
+    AI_Output (self, other ,"DIA_Brahim_Troll_03_04"); //Ju� sko�czy�em
+	B_LogEntry                     (TOPIC_Brahim_Expedition,"W okolicy farmy Onara jest kotlina w kt�rej urz�duj� trolle. Nie zbyt przyjemne miejsce na wycieczk�. Brahim ma ju� wszystko czego mu trzeba");
+	 Log_SetTopicStatus       (TOPIC_Brahim_Expedition, LOG_SUCCESS);
+    MIS_Brahim_Expedition = LOG_SUCCESS;
+
+    B_GivePlayerXP (300);
+
+    self.aivar[AIV_PARTYMEMBER] = FALSE;
+    Npc_ExchangeRoutine (self, "START");
+    AI_StopProcessInfos	(self);
+};
 
 ///////////////////////////////////////////////////////////////////////
 //	Info GREET
