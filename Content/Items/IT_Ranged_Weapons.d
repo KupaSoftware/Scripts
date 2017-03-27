@@ -566,3 +566,76 @@ INSTANCE ItRw_Crossbow_H_02(C_Item)
 	TEXT[3] 			= NAME_Str_needed;				COUNT[3]	= cond_value[2];
 	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
 };
+//-------------------- MOD -----------------------
+INSTANCE ItRw_Sld_BeerBow(C_Item)
+{
+	name 				=	"Piwny ³uk";
+
+	mainflag 			=	ITEM_KAT_FF;
+	flags 				=	ITEM_BOW;
+	material 			=	MAT_WOOD;
+
+	value 				=	Value_Sldbogen;
+
+	damageTotal			=	150;
+	damagetype			=	DAM_POINT;
+	munition			=	ItRw_Fish;
+
+	cond_atr[2]   		= 	ATR_DEXTERITY;
+	cond_value[2]  		= 	10;
+	visual 				=	"ItFo_Beer.3DS";
+
+	description			= name;
+	TEXT[1]				= "Z tego ³uku nie postrzelasz zwyk³ymi strza³ami.";
+	TEXT[2]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[3] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+INSTANCE ItRw_Sld_BedBow(C_Item)
+{
+	name 				=	"£uk¿ko";
+
+	mainflag 			=	ITEM_KAT_FF;
+	flags 				=	ITEM_BOW;
+	material 			=	MAT_WOOD;
+
+	value 				=	2000;
+
+	damageTotal			=	200;
+	damagetype			=	DAM_POINT;
+	munition			=	ItRw_Fish;
+
+	cond_atr[2]   		= 	ATR_DEXTERITY;
+	cond_value[2]  		= 	70;
+	visual 				=	"dt_bed_v1.3DS";
+
+	description			= name;
+	TEXT[1]				= "Ten nietypowy wynalazek, to najnowsze dzie³o Bospera.";
+	TEXT[2]				= "Jest znacznie bardziej efektywny ni¿ zwyk³e ³uki.";
+	TEXT[3]				= NAME_Damage;					COUNT[2]	= damageTotal;
+	TEXT[4] 			= NAME_Dex_needed;				COUNT[3]	= cond_value[2];
+	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
+};
+
+INSTANCE ItRw_Fish (C_Item)
+{	
+	name 				=	"Rybna strza³a";
+
+	mainflag 			=	ITEM_KAT_MUN;
+	flags 				=	ITEM_BOW|ITEM_MULTI;
+	
+	
+	value 				=	2;
+	
+	visual 				=	"ItFo_Fish.3DS";
+	material 			=	MAT_LEATHER;
+
+	description			= 	name;
+	
+	TEXT[1]				= "Strza³a do ³uku Bospera";
+	TEXT[2]				= "Wyrabiana tylko przez Skandian na potrzeby ich armii";
+	TEXT[5]				= NAME_Value;			COUNT[5]	= value;
+
+
+
+};
