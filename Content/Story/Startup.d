@@ -2907,7 +2907,7 @@ func void STARTUP_NewWorld_Part_City_01()
 //----------------------- MOD -------------------
 	Wld_InsertNpc		(VLK_890_Menelaos		, "NW_CITY_MERCHANT_PATH_20");
 	Wld_InsertNpc		(PAL_3013_James		, "NW_CITY_MERCHANT_PATH_20");
-	
+	Wld_InsertNpc		(VLK_3000_dancer		, "NW_CITY_MERCHANT_PATH_01");
 };
 
 	func void INIT_SUB_NewWorld_Part_City_01()
