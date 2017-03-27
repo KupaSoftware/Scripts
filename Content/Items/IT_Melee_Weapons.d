@@ -2474,6 +2474,10 @@ INSTANCE ItMw_2H_Blessed_03 (C_Item)
 	TEXT[5]				= NAME_Value;					COUNT[5]	= value;
 };
 
+//***************************************************
+//					MOD
+//**************************************************
+
 INSTANCE ItMw_1h_toothpick(C_Item)
 {	
 	name 				=	"Wyka³aczka";  

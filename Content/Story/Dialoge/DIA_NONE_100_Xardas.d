@@ -72,7 +72,6 @@ instance DIA_Xardas_Hello (C_INFO)
 	condition	= DIA_Xardas_Hello_Condition;
 	information	= DIA_Xardas_Hello_Info;
 	permanent	= FALSE;
-	important	= TRUE;
 };                       
 FUNC INT DIA_Xardas_Hello_Condition()
 {	
