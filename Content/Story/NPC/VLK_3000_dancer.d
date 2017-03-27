@@ -2,7 +2,7 @@
 instance VLK_3000_dancer (Npc_Default)
 {
 	// ------ NSC ------
-	name 		= "Tancerka";	
+	name 		= "Dark Archon";	
 	guild 		= GIL_VLK;
 	id 			= 3000;
 	voice 		= 16;
