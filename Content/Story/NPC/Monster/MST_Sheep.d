@@ -112,6 +112,21 @@ INSTANCE Follow_Sheep	(Mst_Default_Sheep)
 	start_aistate				= ZS_MM_Rtn_Follow_Sheep;
 	CreateInvItems (self, ItFoMuttonRaw, 1);
 };
+
+INSTANCE Weed_Sheep	(Mst_Default_Sheep)
+{
+	name						= "Dziwna owca";
+	
+	aivar[AIV_ToughGuy] = TRUE;
+		
+	B_SetVisuals_Sheep();
+	Npc_SetToFistMode(self);
+	aivar[AIV_MM_RoamStart]		= OnlyRoutine;
+	
+	start_aistate				= ZS_MM_Rtn_Follow_Sheep;
+	CreateInvItems (self, ItFoMuttonRaw, 1);
+	Mdl_SetModelScale(self, 2, 2, 2);
+};
 //***************
 //	Follow_Sheep_AKIL
 //***************
