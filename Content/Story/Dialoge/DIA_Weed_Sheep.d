@@ -24,7 +24,7 @@ FUNC VOID DIA_Weed_Sheep_EXIT_Info()
 //*********************************************************************
 //	Info Hello 
 //*********************************************************************
-INSTANCE DIA_Weed_Sheep_Wydoj   (C_INFO)
+INSTANCE DIA_Weed_Sheep_Start   (C_INFO)
 {
 	npc         = Weed_Sheep;
 	nr          = 1;
@@ -41,6 +41,6 @@ FUNC INT DIA_Owca_Weed_Condition()
 
 FUNC VOID DIA_Owca_Weed_Info()
 {
-	AI_Output			(other, self, "DIA_SylvioDJG_HelloAgain_09_03"); //Cześć owco
-	AI_Output			(self, other, "DIA_SylvioDJG_HelloAgain_09_04"); //Meeee
+	AI_Output			(other, self, "DIA_Weed_Sheep_Start_08_01"); //Cześć owco
+	AI_Output			(self, other, "DIA_Weed_Sheep_Start_08_02"); //Meeee
 };
