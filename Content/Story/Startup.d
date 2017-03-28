@@ -3427,6 +3427,7 @@ FUNC VOID STARTUP_NewWorld_Part_GreatPeasant_01 ()
 	Wld_InsertNpc 	(SLD_824_Soeldner, 	"BIGFARM");
 	Wld_InsertNpc 	(SLD_825_Soeldner, 	"BIGFARM");
 	Wld_InsertNpc 	(SLD_826_Soeldner, 	"BIGFARM");
+	Wld_InsertNpc 	(SLD_1640_Sibannac, "NW_BIGFARM_KITCHEN_OUT_05");
 
 
 	Wld_InsertNpc 	(Sheep, 		"NW_BIGFARM_SHEEP1_01");
@@ -3463,6 +3464,10 @@ FUNC VOID STARTUP_NewWorld_Part_GreatPeasant_01 ()
 	Wld_InsertNpc 	(Sheep, 		"NW_BIGFARM_KITCHEN_OUT_02");
 	Wld_InsertNpc 	(Sheep, 		"NW_BIGFARM_KITCHEN_OUT_02");
 	Wld_InsertNpc 	(Hammel, 		"NW_BIGFARM_KITCHEN_OUT_02");
+	
+	//------------------------MOD-----------------------------
+	Wld_InsertNpc 	(Weed_Sheep, 		"NW_BIGFARM_SHEEP2_01");
+
 
 	
 	//Farm3
