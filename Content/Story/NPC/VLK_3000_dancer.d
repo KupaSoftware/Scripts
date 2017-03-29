@@ -43,6 +43,6 @@ instance VLK_3000_dancer (Npc_Default)
 
 FUNC VOID Rtn_Start_3000 () // Nadja hält sich für gewöhnlich unten auf...
 {	
-	TA_Dance		(09,00,21,00,"NW_CITY_MERCHANT_PATH_01");
-    TA_Dance		(21,00,09,00,"NW_CITY_MERCHANT_PATH_01");
+	TA_Dance		(09,00,21,00,"NW_CITY_MERCHANT_PATH_37");
+    TA_Dance		(21,00,09,00,"NW_CITY_MERCHANT_PATH_37");
 };

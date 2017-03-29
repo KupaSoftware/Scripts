@@ -1162,3 +1162,6 @@ const string KapWechsel_6			= "Rozdzia³ 6"					;
 const string KapWechsel_6_Text		= "Dwór Irdorath"				;
 
 //-----Written Texte----------
+
+//---------MOD----------------
+const string PRINT_ARHNEU			= "arhn.eu - oldschool, newschool, allschool!";

@@ -54,6 +54,8 @@ FUNC VOID DIA_dancer_HELLO_Info()
     AI_Output (self, other ,"DIA_dancer_HELLO_03_07"); //I przyjdzie czas, gdy zajmiemy siê tym unikatowym klonem japoñskiego Famicoma.
     AI_Output (self, other ,"DIA_dancer_HELLO_03_08"); //Dziœ jednak nie bêdziemy spogl¹daæ w przesz³oœæ.
     AI_Output (self, other ,"DIA_dancer_HELLO_03_09"); //Czy uwierzycie, jeœli powiem wam, ¿e w 2011 roku wci¹¿ mo¿emy wybraæ siê...
+	PrintScreen	(PRINT_ARHNEU, -1, 40, FONT_Screen, 5);
+	B_GivePlayerXP (150);
 	AI_StopProcessInfos (self);
 };
 
