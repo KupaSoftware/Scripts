@@ -115,7 +115,7 @@ INSTANCE Follow_Sheep	(Mst_Default_Sheep)
 
 INSTANCE Weed_Sheep	(Mst_Default_Sheep)
 {
-	name						= "Dziwna owca";
+	name						= "Du¿a Owca";
 	
 	aivar[AIV_ToughGuy] = TRUE;
 		
@@ -125,7 +125,7 @@ INSTANCE Weed_Sheep	(Mst_Default_Sheep)
 	
 	start_aistate				= ZS_MM_Rtn_Follow_Sheep;
 	CreateInvItems (self, ItFoMuttonRaw, 1);
-	Mdl_SetModelScale(self, 2, 2, 2);
+	Mdl_SetModelScale(self, 1.5, 1.5, 1.5);
 };
 //***************
 //	Follow_Sheep_AKIL

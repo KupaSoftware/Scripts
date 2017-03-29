@@ -1503,3 +1503,4 @@ var int B_MenelNoHelp;
 var int MIS_Menel_Bitch;
 var int B_MenelBeerGiven;
 var int MIS_Brahim_Expedition;
+var int MIS_Sibannac_Weed;

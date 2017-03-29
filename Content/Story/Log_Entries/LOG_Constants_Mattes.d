@@ -180,3 +180,4 @@ const string TOPIC_James_Eq      = "Paladyn James";
 const string TOPIC_Menel_Bitch      = "Praca dla Menelaosa";
 const string TOPIC_Brahim_Map      = "Nowa Mapa";
 const string TOPIC_Brahim_Expedition      = "Podró¿e z Brahimem";
+const string TOPIC_Sibannac_Weed      = "Za dzwadzieœcia pi¹ta";

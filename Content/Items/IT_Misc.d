@@ -470,6 +470,40 @@ func void Use_Joint()
 	};
 };
 
+
+/******************************************************************************************/
+INSTANCE ItMi_Weed(C_Item)
+{
+	name 				=	"Mocny skrêt";
+
+	mainflag 			=	ITEM_KAT_NONE;
+	flags 				=	ITEM_MULTI;
+
+	value 				=	Value_Joint;
+
+	visual 				=	"ItMi_Joint_US.3ds";
+	material 			=	MAT_LEATHER;
+
+	scemeName			=	"JOINT";
+	on_state[0]			= 	Use_Weed;
+	description			= 	name;
+	
+	TEXT[5]				= 	NAME_Value;	
+	COUNT[5]			= 	value;
+	
+	INV_ZBIAS				= INVCAM_ENTF_RING_STANDARD;
+	
+};
+func void Use_Weed()
+{
+	if (Npc_IsPlayer (self))
+	{
+		Wld_PlayEffect ("SLOW_TIME", self, self, 0, 0, 0, FALSE);
+		B_RaiseAttribute	(self, ATR_DEXTERITY,	5);
+		B_RaiseAttribute	(self, ATR_STRENGTH,	5);
+	};
+};
+
 /******************************************************************************************/
 /*
 INSTANCE ItMi_Alarmhorn (C_Item)
