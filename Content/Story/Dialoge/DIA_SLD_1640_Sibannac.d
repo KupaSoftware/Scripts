@@ -203,14 +203,82 @@ FUNC VOID DIA_Sibannac_Quest_Info()
     AI_Output (other, self ,"DIA_Sibannac_Quest_15_06"); //Nie jestem pewien czy chc...
     AI_Output (self, other ,"DIA_Sibannac_Quest_03_07"); //Nawet nie próbuj uciekaæ
     AI_Output (self, other ,"DIA_Sibannac_Quest_03_08"); //Nie ma odwrotu
-    CreateInvItems (self, ItMi_Weed, 1);
+    CreateInvItems (self, ItMi_Weed, 2);
     B_GiveInvItems (self, other, ItMi_Weed, 1);
     AI_Output (other, self ,"DIA_Sibannac_Quest_15_09"); //Mam to po prostu zapaliæ?
     AI_Output (self, other ,"DIA_Sibannac_Quest_03_10"); //Po prostu to mo¿esz zaraz dostaæ po mordzie
     AI_Output (self, other ,"DIA_Sibannac_Quest_03_11"); //Masz siê delektowaæ ka¿dym k³êbuszkiem dymu
+	B_UseItem (self, ItMi_Weed);
 	B_UseItem (other, ItMi_Weed);
 	B_GivePlayerXP (25);
-	AI_Output (self, other ,"DIA_Sibannac_Quest_03_12"); //I jak?
+	AI_Output (self, other ,"DIA_Sibannac_Quest_03_12"); //Witaj owieczko...
 	AI_StopProcessInfos	(self);
+};
+
+//========================================
+//-----------------> TRADE_SHEEP
+//========================================
+
+INSTANCE DIA_Sibannac_TRADE_SHEEP (C_INFO)
+{
+   npc          = SLD_1640_Sibannac;
+   nr           = 5;
+   condition    = DIA_Sibannac_TRADE_SHEEP_Condition;
+   information  = DIA_Sibannac_TRADE_SHEEP_Info;
+   permanent	= FALSE;
+   Important    = TRUE;
+};
+
+FUNC INT DIA_Sibannac_TRADE_SHEEP_Condition()
+{
+    if (Npc_KnowsInfo (other, DIA_Weed_Sheep_INTRODUCTION))
+    {
+    return TRUE;
+    };
+};
+
+
+FUNC VOID DIA_Sibannac_TRADE_SHEEP_Info()
+{
+    AI_Output (other, self ,"DIA_Sibannac_TRADE_SHEEP_15_01"); //Daj owcy zapaliæ
+    AI_Output (self, other ,"DIA_Sibannac_TRADE_SHEEP_03_02"); //Nie
+    AI_Output (other, self ,"DIA_Sibannac_TRADE_SHEEP_15_03"); //No daj
+    AI_Output (self, other ,"DIA_Sibannac_TRADE_SHEEP_03_04"); //To siê Ÿle skoñczy
+    AI_Output (self, other ,"DIA_Sibannac_TRADE_SHEEP_03_05"); //No ale skoro prosisz to chcê w zamian buziaka...
+    AI_Output (other, self ,"DIA_Sibannac_TRADE_SHEEP_15_06"); //Fuuu
+    AI_Output (self, other ,"DIA_Sibannac_TRADE_SHEEP_03_07"); //No dobra to mo¿e byæ 50 sztuk z³ota
+
+    Info_ClearChoices		(DIA_Sibannac_TRADE_SHEEP);
+    Info_AddChoice		(DIA_Sibannac_TRADE_SHEEP, "(Daj buziaka)", DIA_Sibannac_TRADE_SHEEP_KISS);
+    Info_AddChoice		(DIA_Sibannac_TRADE_SHEEP, "Masz tu 50 sztuk z³ota", DIA_Sibannac_TRADE_SHEEP_GOLD);
+};
+
+FUNC VOID DIA_Sibannac_TRADE_SHEEP_KISS()
+{
+    AI_Output (other, self ,"DIA_Sibannac_TRADE_SHEEP_KISS_15_01"); //Dobra je¿eli to ty to mo¿e byæ buziak
+    AI_Output (self, other ,"DIA_Sibannac_TRADE_SHEEP_KISS_03_02"); //Dziêkujê tego mi by³o trzeba. Masz daj to owcy
+    CreateInvItems (self, ItMi_Weed, 1);
+    B_GiveInvItems (self, other, ItMi_Weed, 1);
+    AI_StopProcessInfos	(self);
+};
+
+FUNC VOID DIA_Sibannac_TRADE_SHEEP_GOLD()
+{
+    AI_Output (other, self ,"DIA_Sibannac_TRADE_SHEEP_GOLD_15_01"); //Masz tu 50 sztuk z³ota
+    AI_Output (self, other ,"DIA_Sibannac_TRADE_SHEEP_GOLD_03_02"); //No niech bêdzie
+    if (Npc_HasItems (other, ItMi_Gold) >=50)
+    {
+        CreateInvItems (self, ItMi_Weed, 1);
+        B_GiveInvItems (self, other, ItMi_Weed, 1);
+        B_GiveInvItems (other, self, ItMi_Gold, 50);
+		AI_StopProcessInfos	(self);
+    }
+    else
+    {
+        AI_Output (self, other ,"DIA_Sibannac_TRADE_SHEEP_GOLD_03_03"); //Chyba nie masz tuly pieniêdzy
+        AI_Output (self, other ,"DIA_Sibannac_TRADE_SHEEP_GOLD_03_04"); //Pozostaje ca³us
+        Info_ClearChoices		(DIA_Sibannac_TRADE_SHEEP);
+		Info_AddChoice		(DIA_Sibannac_TRADE_SHEEP, "(Daj buziaka)", DIA_Sibannac_TRADE_SHEEP_KISS);
+    };
 };
 
