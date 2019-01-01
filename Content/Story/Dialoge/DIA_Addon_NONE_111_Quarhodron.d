@@ -115,6 +115,7 @@ func void DIA_Addon_Quarhodron_Hello_frech ()
 	AI_Output	(self, other, "DIA_Addon_Quarhodron_Hello_frech_11_02"); //Nie mogê oprzeæ siê wra¿eniu, ¿e nie jesteœ tym, za kogo siê podajesz.
 	AI_Output	(self, other, "DIA_Addon_Quarhodron_Hello_frech_11_03"); //Jeœli naprawdê potrzebujesz mej pomocy, bêdziesz musia³ udowodniæ swe intencje.
 	AI_Output	(self, other, "DIA_Addon_Quarhodron_Hello_frech_11_04"); //Odpowiedz na moje pytania, abym mia³ pewnoœæ, ¿e nie wyjawiê tajemnic obcemu.
+	AI_Output	(self, other, "DIA_Addon_Quarhodron_Hello_frech_11_05"); //Poka¿ mi swojego ADANOSA!
 	
 	Log_CreateTopic (TOPIC_Addon_Quarhodron, LOG_MISSION);
 	Log_SetTopicStatus(TOPIC_Addon_Quarhodron, LOG_RUNNING);
