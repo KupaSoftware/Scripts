@@ -220,7 +220,7 @@ func void DIA_Constantino_BEER_DRUNK_Info()
     AI_Output (other, self ,"DIA_Constantino_BEER_DRUNK_15_03"); //Chyba nie do koñca dzia³a tak jak powinno.
     AI_Output (other, self ,"DIA_Constantino_BEER_DRUNK_15_04"); //Zamiast mnie uleczyæ, sprawi³o, ¿e stan¹³em w p³omieniach!
     AI_Output (other, self ,"DIA_Constantino_BEER_DRUNK_15_05"); //Dobrze, ¿e by³em akurat w porcie, mog³em siê szybko ewakuowaæ do wody.
-    AI_Output (self, other ,"DIA_Constantino_BEER_DRUNK_10_06"); //Hê? Naprawdê? By³em pewny, ¿e wszystko jest w porz¹dku. No nic, wygl¹da na to, ¿e bêdê musia³ nad nim popracowaæ.
+    AI_Output (self, other ,"DIA_Constantino_BEER_DRUNK_10_06"); //Hê? Naprawdê? By³em pewny, ¿e wszystko jest w porz¹dku. No nic, wygl¹da na to, ¿e bêdê musia³ nad ni¹ popracowaæ.
     AI_Output (self, other ,"DIA_Constantino_BEER_DRUNK_10_07"); //Proszê, oto rekompensata za twoje poœwiêcenie.
 	CreateInvItems (self, ItMi_Gold, 100);
     B_GiveInvItems (self, other, ItMi_Gold, 100);
@@ -270,10 +270,10 @@ FUNC INT DIA_Constantino_BEER_AGAIN_Condition()
 FUNC VOID DIA_Constantino_BEER_AGAIN_Info()
 {
     AI_Output (other, self ,"DIA_Constantino_BEER_AGAIN_15_01"); //Dasz mi jeszcze jedno piwo?
-    AI_Output (self, other ,"DIA_Constantino_BEER_AGAIN_03_02"); //Nie wiem po co ci kolejne, ale proszê.
+    AI_Output (self, other ,"DIA_Constantino_BEER_AGAIN_10_02"); //Nie wiem po co ci kolejne, ale proszê.
     CreateInvItems (self, ItFo_MenelBeer, 1);
     B_GiveInvItems (self, other, ItFo_MenelBeer, 1);
-    AI_Output (self, other ,"DIA_Constantino_BEER_AGAIN_03_03"); //Mam tego kilka beczek, tak¿e siê nie krêpuj jak bêdziesz jeszcze potrzebowa³.
+    AI_Output (self, other ,"DIA_Constantino_BEER_AGAIN_10_03"); //Zosta³o mi jeszcze kilka beczek, tak¿e przyjdŸ jak bêdziesz jeszcze potrzebowa³.
 };
 
 
